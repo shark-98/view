@@ -1,0 +1,103 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+:root {
+  --bg-color: skyblue;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.box span {
+  margin-right: 50px;
+}
+
+.outside-circle {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  background-color: var(--bg-color);
+  border-radius: 10px 10px 0 0;
+}
+
+.outside-circle::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  left: 0;
+  transform: translate(-100%, 0);
+  background: radial-gradient(circle at 0 0, transparent 20px, var(--bg-color) 21px);
+}
+
+.outside-circle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  right: 0;
+  transform: translate(100%, 0);
+  background: radial-gradient(circle at 100% 0, transparent 20px, var(--bg-color) 21px);
+}
+
+.trapezoid {
+  position: relative;
+  width: 160px;
+  padding: 60px;
+}
+
+.trapezoid:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: perspective(40px) scaleY(1.3) rotateX(5deg);
+  transform-origin: bottom;
+  background: var(--bg-color);
+}
+
+.g-container {
+  position: relative;
+  width: 300px;
+  height: 100px;
+  background: var(--bg-color);
+  border: 1px solid #277f9e;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.g-inner {
+  position: absolute;
+  width: 150px;
+  height: 50px;
+  background: #fee6e0;
+  bottom: 0;
+  border-radius: 0 20px 0 20px;
+  transform: perspective(40px) scaleX(1.4) scaleY(1.5) rotateX(20deg) translate(-10px, 0);
+  transform-origin: 50% 100%;
+}
+
+.g-inner::before {
+  content: "";
+  position: absolute;
+  right: -10px;
+  bottom: -.5px;
+  width: 10px;
+  height: 10px;
+  background: inherit;
+  mask: radial-gradient(circle at 100% 0, transparent, transparent 9.5px, #000 10px, #000);
+  -webkit-mask-image: radial-gradient(circle at 100% 0, transparent, transparent 9.5px, #000 10px, #000);
+}
