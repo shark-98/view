@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>弹幕</title>
+
+  <style>
+    .main {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #barrage-box {
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+      top: 200;
+      color: #f67c01;
+    }
+
+    .barrage {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      animation: roll 5s linear 0s infinite;
+    }
+
+    @keyframes roll {
+      0% {
+        transform: translate(0)
+      }
+
+      100% {
+        transform: translate(-100%)
+      }
+    }
+
+    #barrage-setting {}
+
+
+    .barrage-setting__item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .barrage-setting__item:last-child {
+      margin-bottom: 0;
+    }
+
+    .barrage-setting__item-icon {
+      margin-left: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="setting">
+      <p class="setting-label">弹幕列表：</p>
+      <div id="barrage-setting"></div>
+    </div>
+
+    <div id="barrage-box"></div>
+  </div>
+
+  <script src="./index.js"></script>
+</body>
+
+</html>
